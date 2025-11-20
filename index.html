@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏇 Le PMU - Jeu d'Alcool avec Cartes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>🏇 Le PMU</h1>
+            <p class="subtitle">Jeu d'alcool avec cartes - Course de chevaux</p>
+        </div>
+    </header>
+
+    <!-- Game Container -->
+    <main class="game-container">
+        <!-- Settings Panel -->
+        <section class="settings-panel" id="settingsPanel">
+            <div class="card">
+                <h2><i class="fas fa-cog"></i> Configuration</h2>
+                
+                <div class="setting-group">
+                    <label for="playerCount">Nombre de joueurs:</label>
+                    <div class="input-group">
+                        <button class="btn-sm" onclick="changePlayerCount(-1)">-</button>
+                        <input type="number" id="playerCount" min="2" max="8" value="4" readonly>
+                        <button class="btn-sm" onclick="changePlayerCount(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="sipsPerPlayer">Gorgées par joueur:</label>
+                    <div class="input-group">
+                        <button class="btn-sm" onclick="changeSips(-5)">-5</button>
+                        <input type="number" id="sipsPerPlayer" min="5" max="50" value="5" readonly>
+                        <button class="btn-sm" onclick="changeSips(5)">+5</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="raceLength">Longueur de la course:</label>
+                    <div class="input-group">
+                        <button class="btn-sm" onclick="changeRaceLength(-1)">-</button>
+                        <input type="number" id="raceLength" min="5" max="12" value="7" readonly>
+                        <button class="btn-sm" onclick="changeRaceLength(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="setting-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="bonusEnabled">
+                        <span>Activer le bonus à 5 cartes</span>
+                    </label>
+                </div>
+
+                <button class="btn btn-primary btn-block" onclick="startGame()">
+                    <i class="fas fa-play"></i> Démarrer la course
+                </button>
+            </div>
+
+            <!-- Rules Section -->
+            <div class="card rules-card">
+                <h3><i class="fas fa-book"></i> Règles du jeu</h3>
+                <ul class="rules-list">
+                    <li>Chaque joueur dispose de <strong>5 gorgées</strong> à miser par course</li>
+                    <li>Misez sur un ou plusieurs chevaux (♠️ Pique, ♥️ Cœur, ♦️ Carreau, ♣️ Trèfle)</li>
+                    <li>À chaque carte tirée, le cheval correspondant avance d'un slot</li>
+                    <li><strong>Bonus:</strong> À 5 cartes, pariez 3 gorgées bonus sur un cheval (double si perd)</li>
+                    <li>Le premier cheval qui dépasse la ligne d'arrivée gagne!</li>
+                    <li>Les gagnants distribuent les gorgées misées sur le cheval vainqueur</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Game Board -->
+        <section class="game-board" id="gameBoard" style="display: none;">
+            <!-- Race Track -->
+            <div class="race-track-container">
+                <div class="card">
+                    <div class="race-header">
+                        <h2>🏁 Course en cours</h2>
+                        <div class="race-info">
+                            <span class="info-badge">Carte: <strong id="cardCount">0</strong></span>
+                            <span class="info-badge">Deck: <strong id="deckCount">52</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="race-track" id="raceTrack">
+                        <!-- Horses rows will be generated dynamically -->
+                    </div>
+
+                    <div class="controls">
+                        <button class="btn btn-success" onclick="drawCard()" id="drawBtn">
+                            <i class="fas fa-hand-pointer"></i> Tirer une carte
+                        </button>
+                        <button class="btn btn-warning" onclick="newRace()">
+                            <i class="fas fa-redo"></i> Nouvelle course
+                        </button>
+                        <button class="btn btn-secondary" onclick="backToSettings()">
+                            <i class="fas fa-cog"></i> Réglages
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Betting Panel -->
+            <div class="betting-panel">
+                <div class="card">
+                    <h3><i class="fas fa-coins"></i> Paris des joueurs</h3>
+                    
+                    <div class="player-tabs" id="playerTabs">
+                        <!-- Player tabs generated dynamically -->
+                    </div>
+
+                    <div class="betting-content" id="bettingContent">
+                        <!-- Betting interface for current player -->
+                    </div>
+
+                    <div class="bonus-section" id="bonusSection" style="display: none;">
+                        <h4><i class="fas fa-star"></i> Bonus (5 cartes)</h4>
+                        <p>Pariez 3 gorgées bonus sur un seul cheval!</p>
+                        <div class="bonus-buttons">
+                            <button class="btn btn-horse spade" onclick="placeBonus('spade')">♠️</button>
+                            <button class="btn btn-horse heart" onclick="placeBonus('heart')">♥️</button>
+                            <button class="btn btn-horse diamond" onclick="placeBonus('diamond')">♦️</button>
+                            <button class="btn btn-horse club" onclick="placeBonus('club')">♣️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics -->
+                <div class="card stats-card">
+                    <h3><i class="fas fa-chart-bar"></i> Statistiques</h3>
+                    <div id="statistics">
+                        <div class="stat-item">
+                            <span class="stat-label">Courses jouées:</span>
+                            <span class="stat-value" id="racesPlayed">0</span>
+                        </div>
+                        <div class="stat-horses" id="horseStats">
+                            <div class="stat-item">
+                                <span class="stat-label">♠️ Victoires:</span>
+                                <span class="stat-value" id="spadeWins">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">♥️ Victoires:</span>
+                                <span class="stat-value" id="heartWins">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">♦️ Victoires:</span>
+                                <span class="stat-value" id="diamondWins">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">♣️ Victoires:</span>
+                                <span class="stat-value" id="clubWins">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Winner Modal -->
+        <div class="modal" id="winnerModal">
+            <div class="modal-content">
+                <h2>🏆 Résultat de la course!</h2>
+                <div class="winner-horse" id="winnerHorse"></div>
+                <div class="winner-details" id="winnerDetails"></div>
+                <button class="btn btn-primary" onclick="closeWinnerModal()">Continuer</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>🏇 Le PMU - Jeu d'alcool avec cartes | Créé par <a href="https://github.com/Adam-Blf" target="_blank">Adam Beloucif</a></p>
+        <p class="warning">⚠️ À consommer avec modération - Jeu réservé aux adultes majeurs</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
