@@ -3,6 +3,15 @@
 
 ![Dernier commit](https://img.shields.io/github/last-commit/Adam-Blf/PMU-Game?style=flat&logo=git&logoColor=white&color=0080ff&label=Dernier%20commit) ![Langage principal](https://img.shields.io/github/languages/top/Adam-Blf/PMU-Game?style=flat&logo=git&logoColor=white&color=0080ff&label=Langage%20principal) ![Nombre de langages](https://img.shields.io/github/languages/count/Adam-Blf/PMU-Game?style=flat&logo=git&logoColor=white&color=0080ff&label=Nombre%20de%20langages)
 
+## 📝 Description
+Simulation de paris hippiques (PMU).
+
+## ⚡ Fonctionnalités
+- Simulation de courses
+- Système de paris
+- Gestion de budget
+
+
 ### Construit avec les outils et technologies : 
 
 ![CSS](https://img.shields.io/badge/-CSS-0080ff?style=flat) ![JavaScript](https://img.shields.io/badge/-JavaScript-0080ff?style=flat) ![HTML](https://img.shields.io/badge/-HTML-0080ff?style=flat)
