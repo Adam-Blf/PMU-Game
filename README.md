@@ -366,3 +366,9 @@ Inspiré par les jeux de bar traditionnels et les soirées étudiantes. Merci à
 ---
 
 *Dernière mise à jour : 20 novembre 2025*
+
+---
+
+<p align="center">
+  <sub>Par <a href="https://adam.beloucif.com">Adam Beloucif</a> · Data Engineer & Fullstack Developer · <a href="https://github.com/Adam-Blf">GitHub</a></sub>
+</p>
