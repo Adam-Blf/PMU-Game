@@ -20,6 +20,12 @@ Simulation de paris hippiques (PMU).
 
 # 🏇 Le PMU - Jeu d'Alcool avec Cartes
 
+![Status](https://img.shields.io/badge/status-complete-brightgreen)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![GH Pages](https://img.shields.io/badge/play-GH_Pages-222?logo=github&logoColor=white)
+![MIT](https://img.shields.io/badge/license-MIT-blue)
+
 > Jeu d'alcool interactif basé sur des courses de chevaux avec cartes. Misez, pariez et distribuez des gorgées ! Application web moderne sans dépendances externes.
 
 [🎮 Jouer en ligne](#) | [📖 Documentation](#règles-du-jeu) | [🎯 Règles](#règles-du-jeu)
