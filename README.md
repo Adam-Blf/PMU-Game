@@ -41,7 +41,7 @@
 ```mermaid
 flowchart LR
     HTML["index.html<br/>structure de la table de jeu"]
-    JS["app.js<br/>moteur · cartes · courses · paris · gorgees"]
+    JS["app.js<br/>moteur - cartes - courses - paris - gorgees"]
     CSS["style.css<br/>habillage PMU"]
     V["Vercel<br/>hebergement statique"]
     HTML --> JS
@@ -377,7 +377,7 @@ Inspiré par les jeux de bar traditionnels et les soirées étudiantes. Merci à
 ---
 
 <p align="center">
-  <sub>Par <a href="https://adam.beloucif.com">Adam Beloucif</a> · Data Engineer & Fullstack Developer · <a href="https://github.com/Adam-Blf">GitHub</a> · <a href="https://www.linkedin.com/in/adambeloucif/">LinkedIn</a></sub>
+  <sub>Par <a href="https://adam.beloucif.com">Adam Beloucif</a> - Data Engineer & Fullstack Developer - <a href="https://github.com/Adam-Blf">GitHub</a> - <a href="https://www.linkedin.com/in/adambeloucif/">LinkedIn</a></sub>
 </p>
 
 
