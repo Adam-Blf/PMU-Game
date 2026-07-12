@@ -36,6 +36,20 @@
 
 ---
 
+## 🏗️ Architecture
+
+```mermaid
+flowchart LR
+    HTML["index.html<br/>structure de la table de jeu"]
+    JS["app.js<br/>moteur · cartes · courses · paris · gorgees"]
+    CSS["style.css<br/>habillage PMU"]
+    V["Vercel<br/>hebergement statique"]
+    HTML --> JS
+    HTML --> CSS
+    HTML --> V
+```
+
+
 ## 🎯 Règles du Jeu
 
 ### 📋 Préparation
