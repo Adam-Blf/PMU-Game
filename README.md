@@ -46,6 +46,11 @@ flowchart LR
     HTML --> JS
     HTML --> CSS
     HTML --> V
+
+    classDef c0 fill:#2563eb,stroke:#1e3a8a,stroke-width:2px,color:#ffffff
+    classDef c1 fill:#7c3aed,stroke:#4c1d95,stroke-width:2px,color:#ffffff
+    class HTML c0
+    class JS,CSS,V c1
 ```
 
 ## 🎯 Règles du Jeu
