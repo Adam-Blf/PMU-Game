@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-1.0.1-DC0A2D?style=flat-square) ![vanilla-js](https://img.shields.io/badge/vanilla--js-es6-141418?style=flat-square) ![license](https://img.shields.io/badge/license-MIT-424242?style=flat-square) ![type](https://img.shields.io/badge/type-game-4CAF50?style=flat-square)
+![version](https://img.shields.io/badge/version-1.1.0-DC0A2D?style=flat-square) ![vanilla-js](https://img.shields.io/badge/vanilla--js-es6-141418?style=flat-square) ![license](https://img.shields.io/badge/license-MIT-424242?style=flat-square) ![type](https://img.shields.io/badge/type-game-4CAF50?style=flat-square)
 
 # 🏇 Le PMU - Jeu d'Alcool avec Cartes
 
@@ -141,7 +141,7 @@ npx http-server
 - **HTML5** : Structure sémantique
 - **CSS3** : Design moderne avec gradients, animations, responsive
 - **JavaScript (ES6+)** : Logique de jeu, gestion d'état, DOM manipulation
-- **Font Awesome 6** : Icônes (CDN)
+- **Reicon** : Icônes (MIT), sprite SVG inline dans `index.html`
 
 ### 📂 Structure du projet
 
