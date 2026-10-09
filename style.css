@@ -352,7 +352,14 @@ body {
     color: var(--dark);
 }
 
-.card h2 i, .card h3 i {
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    flex-shrink: 0;
+}
+
+.card h2 .icon, .card h3 .icon {
     margin-right: 10px;
     color: var(--primary);
 }

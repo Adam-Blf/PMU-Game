@@ -2,6 +2,10 @@
 
 All notable changes to this project are documented here. Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versions follow [SemVer](https://semver.org/).
 
+## [1.1.0] - 2026-10-09
+
+- icônes : migration des icônes vers Reicon, sprite SVG inclus dans la page, plus aucune dépendance à un CDN d'icônes
+
 ## [1.0.1] - 2026-10-07
 
 First tagged release. Latest changes:
